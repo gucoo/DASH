@@ -1,0 +1,5 @@
+Where MA(q) is a weighted average over the error terms (white noise), AR(p) is a weighted average over the previous values of the series Xt−p X t − p .
+
+Or to put it in quant finance terms: white noise is like the daily changes in the S&P in points, a random walk is the S&P daily level itself.Aug 25, 2015
+
+treat white noise as a range 
