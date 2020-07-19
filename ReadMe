@@ -1,4 +1,7 @@
+https://towardsdatascience.com/time-series-in-python-exponential-smoothing-and-arima-processes-2c67f2a52788
+
 Properties and types of series
+
 Trend : A long-term increase or decrease in the data. This can be seen as a slope (is doesn’t have to be linear) roughly going through the data.
 Seasonality : A time series is said to be seasonal when it is affected by seasonal factors (hour of day, week, month, year, etc.). Seasonality can be observed with nice cyclical patterns of fixed frequency.
 Cyclicity : A cycle occurs when the data exhibits rises and falls that are not of a fixed frequency. These fluctuations are usually due to economic conditions, and are often related to the “business cycle”. The duration of these fluctuations is usually at least 2 years.
@@ -6,3 +9,25 @@ Residuals : Each time series can be decomposed in two parts:
 - A forecast, made up of one or several forecasted values
 - Residuals. They are the difference between an observation and its predicted value at each time step. Remember that
 Value of series at time t = Predicted value at time t + Residual at time t
+
+
+Decomposition of a time series
+
+A trend (upward or downwards movement of the curve on the long term)
+A seasonal component
+Residuals
+
+
+The golden rule: Stationarity
+
+Before going any further into our analysis, our series has to be made stationary.
+Stationarity is the property of exhibiting constant statistical properties (mean, variance, autocorrelation, etc.). If the mean of a time-series increases over time, then it’s not stationary.
+
+
+Transforms used for stationarizing data:
+
+De-trending : We remove the underlying trend in the series. This can be done in several ways, depending on the nature of data :
+- Indexed data: data measured in currencies are linked to a price index or related to inflation. Dividing the series by this index (ie deflating) element-wise is therefore the solution to de-trend the data.
+- Non-indexed data: is it necessary to estimate if the trend is constant, linear or exponential. The first two cases are easy, for the last one it is necessary to estimate a growth rate (inflation or deflation) and apply the same method as for indexed data.
+Differencing : Seasonal or cyclical patterns can be removed by substracting periodical values. If the data is 12-month seasonal, substracting the series with a 12-lag difference series will give a “flatter” series
+Logging : in the case where the compound rate in the trend is not due to a price index (ie the series is not measured in a currency), logging can help linearize a series with an exponential trend (recall that log(exp(x)) = x). It does not remove an eventual trend whatsoever, unlike deflation.
